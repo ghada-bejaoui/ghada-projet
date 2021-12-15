@@ -1,11 +1,19 @@
 from flask import Flask
 from flask import render_template
+import os
+
+PEOPLE_FOLDER = os.path.join('static', 'people_photo')
+
 app=Flask(__name__, template_folder='templates')
+app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDE
+
 
 
 @app.route('/upload')
 def upload_files():
-   return render_template("form.html")
+   full_filename = os.path.join(app.config['UPLOAD_FOLDER'], '/static/bg.png')
+   return render_template("form.html", user_image = full_filename)
+
 
 		
 if __name__ == "__main__":
