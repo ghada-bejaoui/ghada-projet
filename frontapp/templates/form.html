@@ -6,7 +6,7 @@
 <title>Angham</title>
 <style>
     :root {
-        --clr-neon: #CB6CE6;
+        --clr-neon: #000f26;
         --clr-bg: white;
       }
       
@@ -18,7 +18,10 @@
       
       body {
 
-        background-image: url('bg.png');
+        background: linear-gradient(-45deg, #23a6d5, #23d5ab, #ee7752, #e73c7e);
+	
+	animation: gradient 15s ease infinite;
+	height: 100vh;
      
       }
       
@@ -110,7 +113,7 @@
         background-image: linear-gradient(to bottom, transparent 50%, #CB6CE6 50%);
         background-size: 100% 200%;
         transition: all 1s;
-        color: #CB6CE6;
+        color: #000f26;
         font-size:100px;
         text-align: center;
         text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
@@ -132,11 +135,16 @@
     
         }
         p{font-size: 1.5rem;}
+        .b{
+        color : #000f26;
+        margint-top:30%;
+        margin-left:2%;
+        }
     
 </style>
 </head>
 <body>
-
+	<div class="b"><h1>Find genre music</h1></div>
     <form action = "http://localhost:5000/uploader" method = "POST" 
          enctype = "multipart/form-data">
          <div class="d">
