@@ -1,0 +1,23 @@
+node {
+   stage('PrepareGit') {
+      
+      git credentialsId: 'git-cred', url: 'https://github.com/ghada-bejaoui/ghada-projet.git'
+      if (!fileExists("docker-compose.yml")) {
+         error('Dockerfile missing.')
+      }
+   }
+   stage('Build') {
+       
+         sh "docker-compose build"
+   }
+   stage("Test"){
+        sh "python unittests.py"
+        post {
+                always {junit 'test-reports/*.xml'}
+            }
+    }
+
+    stage("Run"){
+        sh "docker-compose up "
+    }
+}

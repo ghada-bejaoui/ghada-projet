@@ -1,0 +1,10 @@
+# To ensure app dependencies are ported from your virtual environment/host machine into your container, run 'pip freeze > requirements.txt' in the terminal to overwrite this file
+flask==1.1.2
+librosa==0.6.0
+numba==0.48
+numpy
+keras
+tensorflow
+scikit-learn
+pillow
+matplotlib

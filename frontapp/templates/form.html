@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+<title>Angham</title>
+<style>
+    :root {
+        --clr-neon: #CB6CE6;
+        --clr-bg: white;
+      }
+      
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      
+      body {
+
+        background-image: url('bg.png');
+     
+      }
+      
+      .neon-button {
+        font-size: 2rem;
+        background: transparent;
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--clr-neon);
+        border: var(--clr-neon) 0.125em solid;
+        padding: 0.25em 0.75em;
+        border-radius: 0.25em;
+        text-align: center;
+        text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+        width: 100%;
+        height: 20%;
+        box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+        position: relative;
+      }
+      
+      .neon-button::before {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        background: var(--clr-neon);
+        top: 120%;
+        left: 0;
+        transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+        filter: blur(1em);
+        opacity: 0.7;
+      }
+      
+      .neon-button::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: 0 0 2em 0.5em var(--clr-neon);
+        opacity: 0;
+        background-color: var(--clr-neon);
+        z-index: -1;
+        transition: opacity 100ms linear;
+      }
+      
+      .neon-button:hover,
+      .neon-button:focus {
+        color: var(--clr-bg);
+        text-shadow: none;
+      }
+      
+      .neon-button:hover::before,
+      .neon-button:focus::before {
+        opacity: 1;
+      }
+      .neon-button:hover::after,
+      .neon-button:focus::after {
+        opacity: 1;
+      }
+      .d{
+        
+          float: right;
+          background-color: transparent;
+          width: 20%;
+          height: 50%;
+          position: relative;
+          right: 12%;
+          margin-top: 25%;
+          align-content: center;
+          
+      }
+            
+      .file-upload{
+        left: 30%;
+        align-content: center;
+        height:100px;
+        width:100px;
+        border-radius: 100px;
+        position:relative;
+        
+        display:flex;
+        justify-content:center;
+        align-items: center;  
+    
+        border:4px solid #CB6CE6;
+        overflow:hidden;
+        background-image: linear-gradient(to bottom, transparent 50%, #CB6CE6 50%);
+        background-size: 100% 200%;
+        transition: all 1s;
+        color: #CB6CE6;
+        font-size:100px;
+        text-align: center;
+        text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  
+        box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);}
+
+        input[type='file']{
+            
+          height:100px;
+          width:100px;
+          position:absolute;
+          top:0;
+          left:0;
+          opacity:0;
+          cursor:pointer;
+          text-align: center;
+        text-shadow: 0 0 0.100em hsl(0 0% 100% / 0.3), 0 0 0.20em currentColor;
+        box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+    
+        }
+        p{font-size: 1.5rem;}
+    
+</style>
+</head>
+<body>
+
+    <form action = "http://localhost:5000/uploader" method = "POST" 
+         enctype = "multipart/form-data">
+         <div class="d">
+            <div class="file-upload">
+         <input type = "file" name = "file" class="neon-button1"/><p>Upload</p><i class="fa fa-arrow-up"></i>
+            </div><br><br><br>
+         <input type = "submit" value="Send" class="neon-button"/>
+        </div>
+      </form> 
+
+</body>
+</html>
+
